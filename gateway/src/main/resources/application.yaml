@@ -1,0 +1,38 @@
+server:
+  port: 8881
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      httpserver:
+        wiretap: true
+      httpclient:
+        wiretap: true
+      routes:
+        - id: ping
+          uri: http://localhost:8080
+          predicates:
+            - Path=/v1/rest/ping-pong
+            - Header=api-key, 100500
+            - Method=GET
+          filters:
+            - AddRequestHeader=trace-id, 1234567890
+            - RewritePath=/v1/rest/ping-pong, /ping
+            - AddResponseHeader=trace-id, 123456789-000
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    org.springframework.boot.autoconfigure.web: DEBUG
+    reactor.netty: DEBUG

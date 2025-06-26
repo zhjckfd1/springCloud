@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "31d5bc1c-a19c-4ef6-bcb4-e93a030fa24c",
+		"name": "springCloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "gateway ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "100500",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8881/v1/rest/ping-pong",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8881",
+					"path": [
+						"v1",
+						"rest",
+						"ping-pong"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "100500",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "trace-id",
+						"value": "11",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://host.docker.internal:8080/ping",
+					"protocol": "http",
+					"host": [
+						"host",
+						"docker",
+						"internal"
+					],
+					"port": "8080",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "monitor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commits\": [\r\n    {\r\n        \"modified\": [\r\n            \"SC.properties\"\r\n        ]\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"monitor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
