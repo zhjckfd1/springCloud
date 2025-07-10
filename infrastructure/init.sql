@@ -8,6 +8,6 @@ create table cloud.properties (
 );
 
 insert into cloud.properties (key, value, application, profile, label) values
-    ('key1', 'value1', 'SC', 'default', 'latest'),
-    ('key2', 'value2', 'SC', 'default', 'latest'),
-    ('key3', 'value3', 'SC', 'default', 'latest');
+    ('key1', 'value1', 'sc', 'default', 'latest'),
+    ('key2', 'value2', 'sc', 'default', 'latest'),
+    ('key3', 'value3', 'sc', 'default', 'latest');
